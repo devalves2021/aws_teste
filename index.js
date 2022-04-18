@@ -1,17 +1,11 @@
-import express from 'express';
+const express = require('express')
+const app = express()
+const port = 3333
 
-const express = require('express');
-
-const app = express();  
-app.use(express.json());
-
-app.get('/' , (request, response)=>{
-    return response.json({ message: 'Server is Up!!' });
+app.get('/' , (req,res)=>{
+    res.send('Ola galera do express!!')
 })
 
-app.post('/teste', (request,response)=>{
-    const {name, date} = request.body; 
-    return response.json({ name, date });
+app.listen(port, ()=>{
+    console.log(`App rodando na porta ${port}`)
 })
-
-app.listen(3333);
